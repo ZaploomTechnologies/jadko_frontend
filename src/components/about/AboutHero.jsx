@@ -29,7 +29,7 @@ const AboutHero = () => {
             </p>
 
             <Link
-              to="/contact"
+              to="/contact#contact-form"
               className="inline-flex items-center gap-2 px-6 py-3 bg-jadko-secondary text-white rounded-lg font-bold hover:bg-opacity-90 transition-all mb-10 shadow-lg shadow-jadko-secondary/20"
             >
               Become a Partner <ArrowRight className="w-4 h-4" />

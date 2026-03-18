@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   Phone, 
   Mail, 
   MapPin, 
   Clock, 
-  MessageSquare, 
-  Send, 
+  Send,
   ChevronDown, 
   ExternalLink, 
   Download,
@@ -19,10 +18,10 @@ import {
 } from 'lucide-react';
 import SectionHeader from '../components/common/SectionHeader';
 
-const ContactInfoCard = ({ icon: Icon, title, content, subContent }) => (
-  <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
-    <div className="w-12 h-12 rounded-xl bg-jadko-accent/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-      <Icon className="w-6 h-6 text-jadko-accent" />
+const ContactInfoCard = ({ icon: Icon, title, content, subContent, iconColor, bgColor, borderColor }) => (
+  <div className={`bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-all group border ${borderColor} border-b-4`}>
+    <div className={`w-12 h-12 rounded-xl ${bgColor} flex items-center justify-center mb-4 group-hover:animate-wiggle`}>
+      <Icon className={`w-6 h-6 ${iconColor}`} />
     </div>
     <h3 className="text-gray-900 font-bold mb-2">{title}</h3>
     <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">{content}</p>
@@ -31,18 +30,21 @@ const ContactInfoCard = ({ icon: Icon, title, content, subContent }) => (
 );
 
 const QuickLinkCard = ({ icon: Icon, label, colorClass, onClick }) => (
-  <button onClick={onClick} className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 w-full md:w-auto">
+  <button onClick={onClick} className="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-xl hover:bg-white/20 transition-all hover:-translate-y-1 w-full md:w-auto">
     <div className={`w-10 h-10 rounded-lg ${colorClass} flex items-center justify-center`}>
       <Icon className="w-5 h-5 text-white" />
     </div>
-    <span className="font-bold text-gray-800 text-sm">{label}</span>
+    <span className="font-bold text-white text-sm">{label}</span>
   </button>
 );
 
-const FeatureCard = ({ icon: Icon, title, description }) => (
-  <div className="bg-white p-6 rounded-2xl border-b-4 border-jadko-accent shadow-sm hover:shadow-md transition-all h-full">
-    <div className="w-10 h-10 mb-4">
-      <Icon className="w-10 h-10 text-jadko-accent" />
+const FeatureCard = ({ icon: Icon, title, description, iconColor, borderBottomColor, bgColor }) => (
+  <div
+    className="feature-card bg-white p-6 rounded-2xl shadow-md shadow-gray-200 hover:shadow-lg hover:shadow-gray-300 transition-all duration-300 h-full"
+    style={{ border: `1px solid ${borderBottomColor}`, borderBottom: `4px solid ${borderBottomColor}` }}
+  >
+    <div className={`feature-icon w-10 h-10 rounded-xl ${bgColor} flex items-center justify-center mb-4`}>
+      <Icon className={`w-6 h-6 ${iconColor}`} />
     </div>
     <h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3>
     <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
@@ -69,8 +71,75 @@ const FAQItem = ({ question, answer }) => {
   );
 };
 
+const contactInitial = {
+  name: '',
+  phone: '',
+  email: '',
+  city: '',
+  inquiryType: 'General Inquiry',
+  message: '',
+};
+
+const validateContact = (fields) => {
+  const errors = {};
+  if (!fields.name.trim()) {
+    errors.name = 'Full name is required.';
+  } else if (fields.name.trim().length < 2) {
+    errors.name = 'Name must be at least 2 characters.';
+  }
+  if (!fields.phone.trim()) {
+    errors.phone = 'Phone number is required.';
+  } else if (!/^[6-9]\d{9}$/.test(fields.phone.replace(/\s+/g, ''))) {
+    errors.phone = 'Enter a valid 10-digit Indian phone number.';
+  }
+  if (fields.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) {
+    errors.email = 'Enter a valid email address.';
+  }
+  if (!fields.city.trim()) {
+    errors.city = 'City is required.';
+  }
+  return errors;
+};
+
 const ContactPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [contactForm, setContactForm] = useState(contactInitial);
+  const [contactErrors, setContactErrors] = useState({});
+  const [contactSubmitted, setContactSubmitted] = useState(false);
+
+  const handleContactChange = (e) => {
+    const { name, value } = e.target;
+    setContactForm((prev) => ({ ...prev, [name]: value }));
+    if (contactErrors[name]) {
+      setContactErrors((prev) => ({ ...prev, [name]: '' }));
+    }
+  };
+
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+    const errs = validateContact(contactForm);
+    if (Object.keys(errs).length > 0) {
+      setContactErrors(errs);
+      return;
+    }
+    setContactSubmitted(true);
+  };
+
+  const contactInputClass = (field) =>
+    `w-full px-4 py-2.5 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:bg-white transition-all font-medium text-sm ${
+      contactErrors[field]
+        ? 'border-red-400 focus:ring-red-200'
+        : 'border-gray-100 focus:ring-jadko-primary/20'
+    }`;
+
+  useEffect(() => {
+    if (location.hash === '#contact-form') {
+      setTimeout(() => {
+        document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, [location.hash]);
 
   const goToFranchiseForm = () => {
     navigate('/franchise');
@@ -99,15 +168,11 @@ const ContactPage = () => {
             Reach out to our team for any queries regarding our health checkup packages or medical infrastructure services.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button onClick={() => window.location.href = 'tel:+919033608708'} className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-jadko-primary px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-white/10">
-              <Phone className="w-5 h-5" />
-              Call Now
-            </button>
-            <button onClick={() => window.open('https://wa.me/919033608708', '_blank')} className="w-full sm:w-auto flex items-center justify-center gap-2 bg-jadko-secondary text-white px-8 py-4 rounded-xl font-bold hover:bg-red-700 transition-all shadow-lg shadow-black/10">
-              <MessageSquare className="w-5 h-5" />
-              Send Message
-            </button>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <QuickLinkCard icon={Phone} label="Call Us Now" colorClass="bg-indigo-600" onClick={() => window.location.href = 'tel:+919033608708'} />
+            <QuickLinkCard icon={MessageCircle} label="WhatsApp Us" colorClass="bg-green-500" onClick={() => window.open('https://wa.me/919033608708', '_blank')} />
+            <QuickLinkCard icon={MapPin} label="Locate Us" colorClass="bg-red-500" />
+            <QuickLinkCard icon={Download} label="Brochure PDF" colorClass="bg-gray-700" />
           </div>
         </div>
       </section>
@@ -120,22 +185,34 @@ const ContactPage = () => {
               icon={MapPin}
               title="Office Address"
               content={"123 Health Plaza, Akshar,\nSurat, Gujarat - 395009"}
+              iconColor="text-rose-500"
+              bgColor="bg-rose-50"
+              borderColor="border-rose-300"
             />
             <ContactInfoCard
               icon={Phone}
               title="Phone Number"
               content={"+91 98765 43210"}
               subContent="Available 24/7 for emergencies"
+              iconColor="text-blue-500"
+              bgColor="bg-blue-50"
+              borderColor="border-blue-300"
             />
             <ContactInfoCard
               icon={Mail}
               title="Email Support"
               content={"contact@jadkohealthcare.com\nhelp@jadkohealthcare.com"}
+              iconColor="text-amber-500"
+              bgColor="bg-amber-50"
+              borderColor="border-amber-300"
             />
             <ContactInfoCard
               icon={Clock}
               title="Working Hours"
               content={"Mon - Sat: 08 AM - 08 PM\nSun: 09 AM - 01 PM"}
+              iconColor="text-emerald-500"
+              bgColor="bg-emerald-50"
+              borderColor="border-emerald-300"
             />
           </div>
         </div>
@@ -150,49 +227,85 @@ const ContactPage = () => {
               <h2 className="text-2xl font-black text-gray-900 mb-1">Send Us a Message</h2>
               <p className="text-gray-500 mb-5 font-medium text-sm">Fill out the form below and our team will get back to you within 2 hours.</p>
 
-              <form className="space-y-4">
+              {contactSubmitted ? (
+                <div className="flex flex-col items-center justify-center py-10 text-center gap-4">
+                  <CheckCircle className="w-16 h-16 text-green-500" />
+                  <h3 className="text-2xl font-black text-gray-900">Message Sent!</h3>
+                  <p className="text-gray-500 text-sm max-w-xs">
+                    Thank you for reaching out. Our team will get back to you within 2 hours.
+                  </p>
+                  <button
+                    onClick={() => { setContactForm(contactInitial); setContactSubmitted(false); setContactErrors({}); }}
+                    className="mt-2 text-jadko-primary font-bold text-sm underline underline-offset-2"
+                  >
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+              <form className="space-y-4" onSubmit={handleContactSubmit} noValidate>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <label className="text-sm font-bold text-gray-700 ml-1">Full Name</label>
                     <input
                       type="text"
+                      name="name"
+                      value={contactForm.name}
+                      onChange={handleContactChange}
                       placeholder="Enter your name"
-                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium text-sm"
+                      className={contactInputClass('name')}
                     />
+                    {contactErrors.name && <p className="text-red-500 text-xs mt-1">{contactErrors.name}</p>}
                   </div>
                   <div className="space-y-1">
                     <label className="text-sm font-bold text-gray-700 ml-1">Phone Number</label>
                     <input
                       type="tel"
+                      name="phone"
+                      value={contactForm.phone}
+                      onChange={handleContactChange}
                       placeholder="+91 XXXXX XXXXX"
-                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium text-sm"
+                      className={contactInputClass('phone')}
                     />
+                    {contactErrors.phone && <p className="text-red-500 text-xs mt-1">{contactErrors.phone}</p>}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-gray-700 ml-1">Email Address</label>
+                    <label className="text-sm font-bold text-gray-700 ml-1">Email Address <span className="text-gray-400 font-normal">(Optional)</span></label>
                     <input
                       type="email"
+                      name="email"
+                      value={contactForm.email}
+                      onChange={handleContactChange}
                       placeholder="name@email.com"
-                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium text-sm"
+                      className={contactInputClass('email')}
                     />
+                    {contactErrors.email && <p className="text-red-500 text-xs mt-1">{contactErrors.email}</p>}
                   </div>
                   <div className="space-y-1">
                     <label className="text-sm font-bold text-gray-700 ml-1">City</label>
                     <input
                       type="text"
+                      name="city"
+                      value={contactForm.city}
+                      onChange={handleContactChange}
                       placeholder="e.g., Surat"
-                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium text-sm"
+                      className={contactInputClass('city')}
                     />
+                    {contactErrors.city && <p className="text-red-500 text-xs mt-1">{contactErrors.city}</p>}
                   </div>
                 </div>
 
                 <div className="space-y-1">
                   <label className="text-sm font-bold text-gray-700 ml-1">Inquiry Type</label>
                   <div className="relative">
-                    <select className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium appearance-none text-sm">
+                    <select
+                      name="inquiryType"
+                      value={contactForm.inquiryType}
+                      onChange={handleContactChange}
+                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium appearance-none text-sm"
+                    >
                       <option>General Inquiry</option>
                       <option>Health Checkup Booking</option>
                       <option>Franchise Opportunity</option>
@@ -203,18 +316,22 @@ const ContactPage = () => {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-sm font-bold text-gray-700 ml-1">Message</label>
+                  <label className="text-sm font-bold text-gray-700 ml-1">Message <span className="text-gray-400 font-normal">(Optional)</span></label>
                   <textarea
+                    name="message"
+                    value={contactForm.message}
+                    onChange={handleContactChange}
                     rows="3"
                     placeholder="How can we help you today?"
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium resize-none text-sm"
+                    className={`${contactInputClass('message')} resize-none`}
                   ></textarea>
                 </div>
 
-                <button className="w-full bg-jadko-secondary text-white py-3 rounded-xl font-black text-base hover:bg-red-700 transition-all shadow-xl shadow-red-200 hover:shadow-red-300 active:scale-[0.98]">
+                <button type="submit" className="w-full bg-jadko-secondary text-white py-3 rounded-xl font-black text-base hover:bg-red-700 transition-all shadow-xl shadow-red-200 hover:shadow-red-300 active:scale-[0.98]">
                   Submit Your Inquiry
                 </button>
               </form>
+              )}
             </div>
 
             {/* Image Right */}
@@ -236,17 +353,6 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Quick Links Group */}
-      <section className="pb-20">
-        <div className="jadko-container">
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <QuickLinkCard icon={Phone} label="Call Us Now" colorClass="bg-indigo-600" onClick={() => window.location.href = 'tel:+919033608708'} />
-            <QuickLinkCard icon={MessageCircle} label="WhatsApp Us" colorClass="bg-green-500" onClick={() => window.open('https://wa.me/919033608708', '_blank')} />
-            <QuickLinkCard icon={MapPin} label="Locate Us" colorClass="bg-red-500" />
-            <QuickLinkCard icon={Download} label="Brochure PDF" colorClass="bg-gray-700" />
-          </div>
-        </div>
-      </section>
 
       {/* Map Section */}
       <section className="pb-20">
@@ -276,25 +382,37 @@ const ContactPage = () => {
             centered={true}
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            <FeatureCard 
+            <FeatureCard
               icon={Zap}
               title="Fast Response"
               description="We value your time. Our support desk typically responds to all digital inquiries within 2 business hours."
+              iconColor="text-amber-500"
+              borderBottomColor="#fbbf24"
+              bgColor="bg-amber-50"
             />
-            <FeatureCard 
+            <FeatureCard
               icon={Users}
               title="Expert Support"
               description="Get connected with medical professionals and logistics experts who understand your specific needs."
+              iconColor="text-blue-500"
+              borderBottomColor="#60a5fa"
+              bgColor="bg-blue-50"
             />
-            <FeatureCard 
+            <FeatureCard
               icon={ShieldCheck}
               title="Transparent Communication"
               description="No hidden costs or fine prints. Whether it's pricing or franchise terms, we keep it crystal clear."
+              iconColor="text-green-500"
+              borderBottomColor="#4ade80"
+              bgColor="bg-green-50"
             />
-            <FeatureCard 
+            <FeatureCard
               icon={Briefcase}
               title="Multiple Opportunities"
               description="From lab franchising to medical supplies, we offer a diverse range of growth paths for partners."
+              iconColor="text-purple-500"
+              borderBottomColor="#c084fc"
+              bgColor="bg-purple-50"
             />
           </div>
         </div>

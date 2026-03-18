@@ -32,7 +32,7 @@ const steps = [
     badgeBg: "bg-[#ffebf0]",
     badgeText: "text-[#d8385e]",
     themeColor: "bg-[#d8385e]",
-    image: "/setup.png",
+    image: "/setup.jpg",
     title: "Setup",
     description: "Interior design, machine installation, and branding.",
     cardBg: "bg-[#fffafa]",

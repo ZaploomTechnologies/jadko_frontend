@@ -1,10 +1,8 @@
 import React from 'react';
 import { Layers, Monitor, Microscope, Check } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import SectionHeader from '../common/SectionHeader';
 
 const FranchiseModels = () => {
-  const navigate = useNavigate();
   const models = [
     {
       title: "Collection Centre",
@@ -80,7 +78,7 @@ const FranchiseModels = () => {
               ))}
             </ul>
 
-            <button onClick={() => { navigate('/contact'); window.scrollTo(0, 0); }} className="w-full py-3 rounded-lg text-sm font-bold transition-all bg-jadko-primary text-white hover:bg-jadko-primary/90 shadow-md shadow-jadko-primary/20">
+            <button onClick={() => { document.getElementById('franchise-form')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full py-3 rounded-lg text-sm font-bold transition-all bg-jadko-primary text-white hover:bg-jadko-primary/90 shadow-md shadow-jadko-primary/20">
               {model.cta}
             </button>
           </div>

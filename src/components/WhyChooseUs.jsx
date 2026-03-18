@@ -8,42 +8,48 @@ const benefits = [
     title: "Doorstep Collection",
     description: "Certified phlebotomists collect samples at your home – safe, hygienic, and convenient.",
     color: "from-blue-500/20 to-cyan-500/20",
-    iconColor: "text-blue-600"
+    iconColor: "text-blue-600",
+    hoverBorder: "group-hover:border-blue-400"
   },
   {
     icon: <ShieldCheck className="w-6 h-6" />,
     title: "Accredited Labs",
     description: "All tests run in NABL-certified partner labs. Every report is verified by expert doctors.",
     color: "from-emerald-500/20 to-teal-500/20",
-    iconColor: "text-emerald-600"
+    iconColor: "text-emerald-600",
+    hoverBorder: "group-hover:border-emerald-400"
   },
   {
     icon: <Tag className="w-6 h-6" />,
     title: "Affordable Pricing",
     description: "Our asset-light model cuts out middlemen, making tests up to 50% cheaper than traditional labs.",
     color: "from-orange-500/20 to-yellow-500/20",
-    iconColor: "text-orange-600"
+    iconColor: "text-orange-600",
+    hoverBorder: "group-hover:border-orange-400"
   },
   {
     icon: <Zap className="w-6 h-6" />,
     title: "Fast Results",
     description: "Get most reports in 24 hours. Focus on quick, same-day turnaround.",
     color: "from-purple-500/20 to-pink-500/20",
-    iconColor: "text-purple-600"
+    iconColor: "text-purple-600",
+    hoverBorder: "group-hover:border-purple-400"
   },
   {
     icon: <Smartphone className="w-6 h-6" />,
     title: "Digital Transparency",
     description: "Track your sample in real time via our mobile app – see each step and storage conditions.",
     color: "from-indigo-500/20 to-blue-500/20",
-    iconColor: "text-indigo-600"
+    iconColor: "text-indigo-600",
+    hoverBorder: "group-hover:border-indigo-400"
   },
   {
     icon: <Landmark className="w-6 h-6" />,
     title: "Vast Network",
     description: "Leveraging a nationwide franchise model, JADKO is rapidly expanding across 120+ cities.",
     color: "from-rose-500/20 to-orange-500/20",
-    iconColor: "text-rose-600"
+    iconColor: "text-rose-600",
+    hoverBorder: "group-hover:border-rose-400"
   }
 ];
 
@@ -71,7 +77,7 @@ const WhyChooseUs = () => {
           {benefits.map((benefit, index) => (
             <div 
               key={index} 
-              className="group relative p-5 rounded-2xl transition-all duration-500 hover:-translate-y-1 glass hover:shadow-jadko-primary/10"
+              className={`group relative p-5 rounded-2xl border border-transparent transition-all duration-500 hover:-translate-y-1 glass hover:shadow-jadko-primary/10 ${benefit.hoverBorder}`}
             >
               {/* Card Gradient Background (Hidden by default, shown on hover) */}
               <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl bg-gradient-to-br ${benefit.color} -z-10`}></div>
