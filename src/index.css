@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-lg border border-white/10 shadow-2xl;
+  }
+}
+
+@layer components {
+  .jadko-container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .jadko-container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .jadko-container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .jadko-container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .jadko-container {
+      max-width: 1200px;
+    }
+  }
+
+  /* Keep legacy container for now but it points to the same logic */
+  .container {
+    @apply jadko-container;
+  }
+}
+
+.pos:nth-child(1){
+  object-position: 25% 25%;
+}
+.pos:nth-child(2){
+  object-position: 25% 25% !important;
+}
+.pos:nth-child(3){
+  object-position: 25% 15% !important;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-20px) translateX(10px); }
+  50% { transform: translateY(-10px) translateX(20px); }
+  75% { transform: translateY(10px) translateX(-10px); }
+}
+
+.animate-float {
+  animation: float 20s infinite ease-in-out;
+}
+
+.animate-float-delayed {
+  animation: float 25s infinite ease-in-out;
+  animation-delay: -5s;
+}
+
+.animate-float-slow {
+  animation: float 30s infinite ease-in-out;
+  animation-delay: -10s;
+}
