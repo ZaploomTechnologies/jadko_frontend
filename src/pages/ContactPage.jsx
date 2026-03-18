@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { 
+import { useNavigate } from 'react-router-dom';
+import {
   Phone, 
   Mail, 
   MapPin, 
@@ -29,8 +30,8 @@ const ContactInfoCard = ({ icon: Icon, title, content, subContent }) => (
   </div>
 );
 
-const QuickLinkCard = ({ icon: Icon, label, colorClass }) => (
-  <button className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 w-full md:w-auto">
+const QuickLinkCard = ({ icon: Icon, label, colorClass, onClick }) => (
+  <button onClick={onClick} className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 w-full md:w-auto">
     <div className={`w-10 h-10 rounded-lg ${colorClass} flex items-center justify-center`}>
       <Icon className="w-5 h-5 text-white" />
     </div>
@@ -69,6 +70,15 @@ const FAQItem = ({ question, answer }) => {
 };
 
 const ContactPage = () => {
+  const navigate = useNavigate();
+
+  const goToFranchiseForm = () => {
+    navigate('/franchise');
+    setTimeout(() => {
+      document.getElementById('franchise-form')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
   return (
     <div className="bg-[#fbfeff]">
       {/* Hero Section */}
@@ -90,11 +100,11 @@ const ContactPage = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-jadko-primary px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-white/10">
+            <button onClick={() => window.location.href = 'tel:+919033608708'} className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-jadko-primary px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-white/10">
               <Phone className="w-5 h-5" />
               Call Now
             </button>
-            <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-jadko-secondary text-white px-8 py-4 rounded-xl font-bold hover:bg-red-700 transition-all shadow-lg shadow-black/10">
+            <button onClick={() => window.open('https://wa.me/919033608708', '_blank')} className="w-full sm:w-auto flex items-center justify-center gap-2 bg-jadko-secondary text-white px-8 py-4 rounded-xl font-bold hover:bg-red-700 transition-all shadow-lg shadow-black/10">
               <MessageSquare className="w-5 h-5" />
               Send Message
             </button>
@@ -132,57 +142,57 @@ const ContactPage = () => {
       </section>
 
       {/* Form Section */}
-      <section className="py-20">
+      <section id="contact-form" className="py-10">
         <div className="jadko-container">
           <div className="bg-white rounded-[2.5rem] shadow-2xl shadow-gray-200/50 overflow-hidden flex flex-col lg:flex-row border border-gray-100">
             {/* Form Left */}
-            <div className="flex-1 p-8 md:p-12 lg:p-16">
-              <h2 className="text-3xl font-black text-gray-900 mb-2">Send Us a Message</h2>
-              <p className="text-gray-500 mb-10 font-medium">Fill out the form below and our team will get back to you within 2 hours.</p>
-              
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
+            <div className="flex-1 p-6 md:p-8 lg:p-10">
+              <h2 className="text-2xl font-black text-gray-900 mb-1">Send Us a Message</h2>
+              <p className="text-gray-500 mb-5 font-medium text-sm">Fill out the form below and our team will get back to you within 2 hours.</p>
+
+              <form className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-1">
                     <label className="text-sm font-bold text-gray-700 ml-1">Full Name</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       placeholder="Enter your name"
-                      className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium"
+                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium text-sm"
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1">
                     <label className="text-sm font-bold text-gray-700 ml-1">Phone Number</label>
-                    <input 
-                      type="tel" 
+                    <input
+                      type="tel"
                       placeholder="+91 XXXXX XXXXX"
-                      className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium"
+                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium text-sm"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-1">
                     <label className="text-sm font-bold text-gray-700 ml-1">Email Address</label>
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       placeholder="name@email.com"
-                      className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium"
+                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium text-sm"
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1">
                     <label className="text-sm font-bold text-gray-700 ml-1">City</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       placeholder="e.g., Surat"
-                      className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium"
+                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium text-sm"
                     />
                   </div>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-1">
                   <label className="text-sm font-bold text-gray-700 ml-1">Inquiry Type</label>
                   <div className="relative">
-                    <select className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium appearance-none">
+                    <select className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium appearance-none text-sm">
                       <option>General Inquiry</option>
                       <option>Health Checkup Booking</option>
                       <option>Franchise Opportunity</option>
@@ -192,16 +202,16 @@ const ContactPage = () => {
                   </div>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-1">
                   <label className="text-sm font-bold text-gray-700 ml-1">Message</label>
-                  <textarea 
-                    rows="4"
+                  <textarea
+                    rows="3"
                     placeholder="How can we help you today?"
-                    className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium resize-none"
+                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-jadko-primary/20 focus:bg-white transition-all font-medium resize-none text-sm"
                   ></textarea>
                 </div>
 
-                <button className="w-full bg-jadko-secondary text-white py-4 rounded-xl font-black text-lg hover:bg-red-700 transition-all shadow-xl shadow-red-200 hover:shadow-red-300 active:scale-[0.98]">
+                <button className="w-full bg-jadko-secondary text-white py-3 rounded-xl font-black text-base hover:bg-red-700 transition-all shadow-xl shadow-red-200 hover:shadow-red-300 active:scale-[0.98]">
                   Submit Your Inquiry
                 </button>
               </form>
@@ -210,7 +220,7 @@ const ContactPage = () => {
             {/* Image Right */}
             <div className="hidden lg:block w-[40%] relative">
               <img 
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80" 
+                src="/call-center.png" 
                 alt="Support Team" 
                 className="w-full h-full object-cover"
               />
@@ -230,8 +240,8 @@ const ContactPage = () => {
       <section className="pb-20">
         <div className="jadko-container">
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <QuickLinkCard icon={Phone} label="Call Us Now" colorClass="bg-indigo-600" />
-            <QuickLinkCard icon={MessageCircle} label="WhatsApp Us" colorClass="bg-green-500" />
+            <QuickLinkCard icon={Phone} label="Call Us Now" colorClass="bg-indigo-600" onClick={() => window.location.href = 'tel:+919033608708'} />
+            <QuickLinkCard icon={MessageCircle} label="WhatsApp Us" colorClass="bg-green-500" onClick={() => window.open('https://wa.me/919033608708', '_blank')} />
             <QuickLinkCard icon={MapPin} label="Locate Us" colorClass="bg-red-500" />
             <QuickLinkCard icon={Download} label="Brochure PDF" colorClass="bg-gray-700" />
           </div>
@@ -333,10 +343,10 @@ const ContactPage = () => {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-              <button className="bg-jadko-secondary text-white px-10 py-4 rounded-xl font-bold hover:bg-red-700 transition-all shadow-lg active:scale-95">
+              <button onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })} className="bg-jadko-secondary text-white px-10 py-4 rounded-xl font-bold hover:bg-red-700 transition-all shadow-lg active:scale-95">
                 Contact Now
               </button>
-              <button className="bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm px-10 py-4 rounded-xl font-bold transition-all active:scale-95">
+              <button onClick={goToFranchiseForm} className="bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm px-10 py-4 rounded-xl font-bold transition-all active:scale-95">
                 Apply for Franchise
               </button>
             </div>

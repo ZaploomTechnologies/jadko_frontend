@@ -55,15 +55,15 @@ const MobileApp = () => {
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-4 opacity-80 hover:opacity-100 transition-all duration-500">
-                <button className="flex items-center gap-3 bg-black text-white px-6 py-3 rounded-2xl hover:bg-gray-900 transition-all border border-gray-800 shadow-xl hover:-translate-y-1">
+              <div className="flex flex-wrap gap-4 opacity-80">
+                <button disabled className="flex items-center gap-3 bg-black text-white px-6 py-3 rounded-2xl border border-gray-800 shadow-xl cursor-default pointer-events-none">
                   <Apple className="w-7 h-7" />
                   <div className="text-left">
                     <p className="text-[10px] uppercase font-semibold text-gray-400 leading-none mb-1">Download on the</p>
                     <p className="text-base font-bold leading-none">App Store</p>
                   </div>
                 </button>
-                <button className="flex items-center gap-3 bg-black text-white px-6 py-3 rounded-2xl hover:bg-gray-900 transition-all border border-gray-800 shadow-xl hover:-translate-y-1">
+                <button disabled className="flex items-center gap-3 bg-black text-white px-6 py-3 rounded-2xl border border-gray-800 shadow-xl cursor-default pointer-events-none">
                   <PlayCircle className="w-7 h-7" />
                   <div className="text-left">
                     <p className="text-[10px] uppercase font-semibold text-gray-400 leading-none mb-1">GET IT ON</p>

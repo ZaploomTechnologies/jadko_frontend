@@ -1,8 +1,10 @@
 import React from 'react';
 import { Layers, Monitor, Microscope, Check } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import SectionHeader from '../common/SectionHeader';
 
 const FranchiseModels = () => {
+  const navigate = useNavigate();
   const models = [
     {
       title: "Collection Centre",
@@ -25,7 +27,7 @@ const FranchiseModels = () => {
         "On-site basic testing",
         "200-400 sq.ft area"
       ],
-      cta: "Select Model",
+      cta: "Learn More",
       isRecommended: true
     },
     {
@@ -78,11 +80,7 @@ const FranchiseModels = () => {
               ))}
             </ul>
 
-            <button className={`w-full py-3 rounded-lg text-sm font-bold transition-all ${
-              model.isRecommended 
-                ? 'bg-jadko-primary text-white hover:bg-jadko-primary/90 shadow-md shadow-jadko-primary/20' 
-                : 'bg-white text-jadko-primary border border-jadko-primary/20 hover:border-jadko-primary'
-            }`}>
+            <button onClick={() => { navigate('/contact'); window.scrollTo(0, 0); }} className="w-full py-3 rounded-lg text-sm font-bold transition-all bg-jadko-primary text-white hover:bg-jadko-primary/90 shadow-md shadow-jadko-primary/20">
               {model.cta}
             </button>
           </div>

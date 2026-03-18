@@ -3,7 +3,7 @@ import { Phone, Mail } from 'lucide-react';
 
 const LeadForm = () => {
   return (
-    <section className="py-16 bg-white">
+    <section id="franchise-form" className="py-16 bg-white">
       <div className="container">
         <div className="max-w-5xl mx-auto overflow-hidden rounded-[2rem] shadow-xl shadow-jadko-primary/10 border border-gray-100 flex flex-col lg:flex-row">
           {/* Left Info Column */}

@@ -79,12 +79,12 @@ const HealthCheckups = () => {
             ))}
           </div>
         </div>
-
+{/* 
         <div className="mt-12 text-center">
           <button className="bg-white px-8 py-3 rounded-full text-jadko-primary font-bold shadow-sm hover:shadow-md transition-all border border-gray-200">
             View All Categories →
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

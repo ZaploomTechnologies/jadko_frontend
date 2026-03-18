@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react';
 
 const slides = [
   {
-    image: '/hero_banner_family.png',
+    image: '/image-1.jpg',
     title: "Accurate Diagnostics at Your Doorstep",
     subtitle: "Promoting health with home collection and tech-enabled service.",
     cta: "Book Now"
   },
   {
-    image: '/hero_banner_lab_tech.png',
+    image: '/image-2.jpg',
     title: "Preventive Health Packages Starting at ₹999",
     subtitle: "High-quality diagnostics at rates much cheaper than traditional labs.",
     cta: "Explore Packages"
   },
   {
-    image: '/hero_banner_doctor.png',
+    image: '/image-3.jpg',
     title: "Free Doctor Consultation with Every Report",
     subtitle: "Expert advice to help you understand your results better.",
     cta: "Learn More"
@@ -40,7 +40,7 @@ const HeroSlider = () => {
             }`}
         >
           {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent z-10" />
+          <div className="absolute inset-0 bg-black/50 z-10" />
 
           <img
             src={slide.image}
@@ -52,18 +52,18 @@ const HeroSlider = () => {
             }}
           />
 
-          <div className="absolute inset-0 z-20 flex items-center">
-            <div className="container">
-              <div className="max-w-2xl transform transition-all duration-700 translate-y-0 opacity-100">
+          <div className="absolute inset-0 z-20 flex items-center justify-center">
+            <div className="container flex justify-center">
+              <div className="max-w-2xl text-center transform transition-all duration-700 translate-y-0 opacity-100">
                 <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
                   {slide.title}
                 </h1>
                 <p className="text-xl text-gray-200 mb-8 leading-relaxed">
                   {slide.subtitle}
                 </p>
-                <button className="bg-jadko-secondary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-700 transition-all transform hover:scale-105 active:scale-95 shadow-xl">
+                {/* <button className="bg-jadko-secondary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-700 transition-all transform hover:scale-105 active:scale-95 shadow-xl">
                   {slide.cta}
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

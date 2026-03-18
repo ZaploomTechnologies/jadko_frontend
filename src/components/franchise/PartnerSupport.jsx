@@ -43,7 +43,7 @@ const PartnerSupport = () => {
                {/* Illustration placeholder or generated image */}
                <div className="aspect-square flex items-center justify-center">
                   <img 
-                    src="/src/assets/partner_support.png" 
+                    src="/partner_support.png" 
                     alt="Partner Support Illustration"
                     className="max-w-[80%] opacity-80 mix-blend-multiply"
                   />

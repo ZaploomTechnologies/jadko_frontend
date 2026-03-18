@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Activity, TestTube, Microscope } from 'lucide-react';
+import { ArrowRight, CheckCircle2, TestTube, Microscope } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AboutHero = () => {
@@ -13,46 +13,45 @@ const AboutHero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-16">
           
           {/* Left Text Content */}
-          <div className="w-full lg:w-1/2 text-white animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm mb-6 border border-white/20">
-              <Activity className="w-4 h-4 text-jadko-accent" />
-              <span className="text-sm font-semibold tracking-wide text-jadko-accent">
-                Accurate Diagnostics. Knowledge-Driven Outcomes.
-              </span>
+          <div className="w-full lg:w-1/2 text-white">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-jadko-accent/20 border border-jadko-accent/30 text-jadko-accent text-xs font-bold mb-6">
+              <span className="w-2 h-2 rounded-full bg-jadko-accent animate-pulse"></span>
+              ACCURATE DIAGNOSTICS. KNOWLEDGE-DRIVEN OUTCOMES.
             </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Transforming Diagnostics for the Next Generation of Healthcare
+
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug mb-4">
+              Transforming <span className="text-blue-200">Diagnostics</span> for the{' '}
+              <span className="text-jadko-accent">Next Generation</span> of Healthcare
             </h1>
-            
-            <h2 className="text-xl md:text-2xl font-medium text-blue-100 mb-6 border-l-4 border-jadko-accent pl-4">
-              India's Trusted Network for Accurate Diagnostics
-            </h2>
-            
-            <p className="text-lg text-blue-50 mb-10 leading-relaxed max-w-2xl opacity-90">
+
+            <p className="text-sm md:text-base text-gray-300 mb-8 leading-relaxed max-w-lg">
               JADKO Healthcare is building a nationwide, technology-enabled diagnostic network delivering reliable testing, faster turnaround times, and accessible healthcare across India.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link 
-                to="/#services" 
-                className="inline-flex justify-center items-center gap-2 bg-white text-jadko-primary px-8 py-3.5 rounded-full font-bold hover:bg-gray-100 transition-all hover:-translate-y-0.5"
-              >
-                Explore Our Services
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link 
-                to="/#franchise" 
-                className="inline-flex justify-center items-center gap-2 bg-jadko-secondary text-white px-8 py-3.5 rounded-full font-bold hover:bg-red-700 transition-all hover:-translate-y-0.5"
-              >
-                Become a Partner
-              </Link>
-            </div>
+
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-jadko-secondary text-white rounded-lg font-bold hover:bg-opacity-90 transition-all mb-10 shadow-lg shadow-jadko-secondary/20"
+            >
+              Become a Partner <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <ul className="space-y-4">
+              {[
+                "India's Trusted Network for Accurate Diagnostics",
+                "Nationwide reach with technology-enabled labs",
+                "Faster turnaround times and accessible healthcare"
+              ].map((item, index) => (
+                <li key={index} className="flex items-center gap-3 text-gray-200">
+                  <CheckCircle2 className="w-5 h-5 text-jadko-accent shrink-0" />
+                  <span className="text-sm md:text-base font-medium">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Right Image/Graphic */}
           <div className="w-full lg:w-1/2 relative animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm p-4">
+            <div className="relative rounded-2xl shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm p-4">
               <div className="absolute top-8 -left-8 bg-white p-4 rounded-xl shadow-xl flex items-center gap-4 animate-bounce" style={{ animationDuration: '3s' }}>
                 <div className="bg-[#E8F2FF] p-3 rounded-lg text-jadko-primary">
                   <Microscope className="w-8 h-8" />

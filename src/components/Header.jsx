@@ -29,17 +29,16 @@ const Header = () => {
         <nav className="hidden md:flex items-center space-x-8">
           <Link to="/" className={getLinkClass('/')}>Home</Link>
           <Link to="/about" className={getLinkClass('/about')}>About</Link>
-          <a href="/#services" className="text-gray-600 font-medium hover:text-jadko-primary transition-colors">Services</a>
           <Link to="/franchise" className={getLinkClass('/franchise')}>Franchise</Link>
           <Link to="/contact" className={getLinkClass('/contact')}>Contact</Link>
         </nav>
 
         {/* CTA */}
-        <div className="flex items-center">
+        {/* <div className="flex items-center">
           <button className="bg-jadko-secondary text-white px-6 py-2.5 rounded-full font-bold hover:bg-red-700 transition-all transform hover:scale-105 active:scale-95 shadow-md">
             Book a Test
           </button>
-        </div>
+        </div> */}
       </div>
     </header>
   );
