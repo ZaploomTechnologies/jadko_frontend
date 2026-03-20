@@ -151,14 +151,14 @@ const ContactPage = () => {
   return (
     <div className="bg-[#fbfeff]">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 overflow-hidden">
+      <section className="relative pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-jadko-primary to-[#1e3a8a] z-0"></div>
         {/* Abstract background shapes */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-[-20deg] translate-x-1/4"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-jadko-secondary/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
         
         <div className="jadko-container relative z-10 text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-black mb-4 md:mb-6 leading-tight">
             Let's Connect with JADKO
           </h1>
           <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-4 font-medium">
@@ -201,7 +201,7 @@ const ContactPage = () => {
             <ContactInfoCard
               icon={Mail}
               title="Email Support"
-              content={"contact@jadkohealthcare.com\nhelp@jadkohealthcare.com"}
+              content={"jadkohealthcare@gmail.com"}
               iconColor="text-amber-500"
               bgColor="bg-amber-50"
               borderColor="border-amber-300"
@@ -357,10 +357,10 @@ const ContactPage = () => {
       {/* Map Section */}
       <section className="pb-20">
         <div className="jadko-container">
-          <div className="w-full h-[450px] rounded-[2rem] border border-gray-200 overflow-hidden shadow-md">
+          <div className="w-full h-[280px] md:h-[450px] rounded-[1.5rem] md:rounded-[2rem] border border-gray-200 overflow-hidden shadow-md">
             <iframe
               title="JADKO Healthcare Location"
-              src="https://maps.google.com/maps?q=Akshar+Surat+Gujarat+395009&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.8486115058777!2d72.82251707471993!3d21.237850980565316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04eb658d28b8f%3A0x3658b7a720114ac5!2sSardar%20Complex!5e0!3m2!1sen!2sin!4v1773908241395!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -451,7 +451,7 @@ const ContactPage = () => {
       {/* Bottom CTA */}
       <section className="py-20">
         <div className="jadko-container">
-          <div className="bg-jadko-primary rounded-[2.5rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl shadow-blue-200">
+          <div className="bg-jadko-primary rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 shadow-2xl shadow-blue-200">
             <div className="text-center md:text-left">
               <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
                 Have Questions? Let's Talk.

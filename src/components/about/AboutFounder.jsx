@@ -5,25 +5,25 @@ import SectionHeader from '../common/SectionHeader';
 
 const founders = [
   {
-    name: "Dr. Sameer Khan",
-    designation: "Founder & CEO",
-    email: "sameer.k@jadko.com",
+    name: "Jitesh Patel",
+    designation: "Founder",
+    email: "jadkohealthcare@gmail.com",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
     linkedin: "#",
     twitter: "#"
   },
   {
-    name: "Anjali Sharma",
-    designation: "Co-Founder & COO",
-    email: "anjali.s@jadko.com",
+    name: "Amita Patel",
+    designation: "Co-Founder",
+    email: "jadkohealthcare@gmail.com",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
     linkedin: "#",
     twitter: "#"
   },
   {
-    name: "Vikram Malhotra",
-    designation: "Co-Founder & CTO",
-    email: "vikram.m@jadko.com",
+    name: "Dharmesh Malsatar",
+    designation: "Co-Founder",
+    email: "jadkohealthcare@gmail.com",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
     linkedin: "#",
     twitter: "#"
@@ -32,7 +32,7 @@ const founders = [
 
 const AboutFounder = () => {
   return (
-    <section className="py-24 bg-gray-50/50 relative overflow-hidden">
+    <section className="py-14 md:py-24 bg-gray-50/50 relative overflow-hidden">
       <div className="container">
         <SectionHeader 
           label="Our Leadership"

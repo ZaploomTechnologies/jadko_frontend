@@ -55,7 +55,7 @@ const benefits = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="relative py-24 overflow-hidden bg-slate-50">
+    <section className="relative py-14 md:py-24 overflow-hidden bg-slate-50">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-jadko-secondary/10 rounded-full blur-[120px] animate-float"></div>

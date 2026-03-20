@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Quote, Star, Award, CheckCircle, TrendingUp, ChevronLeft, ChevronRight } from 'lucide-react';
 import SectionHeader from './common/SectionHeader';
 
@@ -50,13 +50,27 @@ const brands = [
 
 const TrustSection = () => {
   const [current, setCurrent] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(2);
   const total = testimonials.length;
-  const maxCurrent = total - 2; // last valid position to still show 2 cards
+
+  useEffect(() => {
+    const update = () => setCardsPerView(window.innerWidth >= 768 ? 2 : 1);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  const maxCurrent = total - cardsPerView;
+
+  useEffect(() => {
+    setCurrent((c) => Math.min(c, maxCurrent));
+  }, [cardsPerView, maxCurrent]);
 
   const prev = () => setCurrent((c) => Math.max(0, c - 1));
   const next = () => setCurrent((c) => Math.min(maxCurrent, c + 1));
 
-  // Each card is 1/6 of the track (track = 300% of container, 6 cards each = 50% of container)
+  // Track width = total * (100/cardsPerView)% of container
+  // Each card = (100/total)% of track = (100/cardsPerView)% of container
   const translatePct = current * (100 / total);
 
   return (
@@ -75,7 +89,7 @@ const TrustSection = () => {
             <div className="overflow-hidden">
               <div
                 className="flex transition-transform duration-500 ease-in-out"
-                style={{ width: `${total * 50}%`, transform: `translateX(-${translatePct}%)` }}
+                style={{ width: `${total * (100 / cardsPerView)}%`, transform: `translateX(-${translatePct}%)` }}
               >
                 {testimonials.map((t, i) => (
                   <div
@@ -83,8 +97,8 @@ const TrustSection = () => {
                     style={{ width: `${100 / total}%` }}
                     className="px-6"
                   >
-                    <div className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col relative h-full">
-                      <Quote className="absolute top-10 right-10 w-12 h-12 text-gray-100" />
+                    <div className="bg-white p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col relative h-full">
+                      <Quote className="absolute top-6 right-6 md:top-10 md:right-10 w-10 h-10 md:w-12 md:h-12 text-gray-100" />
                       <div className="flex gap-1 text-jadko-accent mb-6">
                         {[...Array(t.rating)].map((_, j) => <Star key={j} className="w-5 h-5 fill-current" />)}
                       </div>

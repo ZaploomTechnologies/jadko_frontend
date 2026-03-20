@@ -20,10 +20,10 @@ const AboutWhy = () => {
         />
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[160px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-auto md:auto-rows-[160px]">
 
           {/* 1. Structural Fragmentation (Main feature) */}
-          <div className="md:col-span-2 md:row-span-2 group relative bg-white rounded-3xl p-8 border border-blue-300 border-b-4 border-b-blue-400 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between overflow-hidden">
+          <div className="min-h-[200px] md:min-h-0 md:col-span-2 md:row-span-2 group relative bg-white rounded-3xl p-8 border border-blue-300 border-b-4 border-b-blue-400 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between overflow-hidden">
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl bg-gradient-to-br from-blue-500/15 to-cyan-500/15 -z-10 pointer-events-none"></div>
             <div className="relative z-10">
               <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 group-hover:animate-wiggle">
@@ -41,7 +41,7 @@ const AboutWhy = () => {
           </div>
 
           {/* 2. Reliability Crisis (Tall) */}
-          <div className="md:col-span-1 md:row-span-2 group relative bg-white rounded-3xl p-6 border border-orange-300 border-b-4 border-b-orange-400 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col overflow-hidden">
+          <div className="min-h-[180px] md:min-h-0 md:col-span-1 md:row-span-2 group relative bg-white rounded-3xl p-6 border border-orange-300 border-b-4 border-b-orange-400 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col overflow-hidden">
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl bg-gradient-to-br from-orange-500/15 to-amber-500/15 -z-10 pointer-events-none"></div>
             <div className="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center mb-6 group-hover:animate-wiggle">
               <AlertCircle className="w-5 h-5" />

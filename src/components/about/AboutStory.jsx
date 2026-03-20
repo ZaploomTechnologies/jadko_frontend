@@ -4,7 +4,7 @@ import SectionHeader from '../common/SectionHeader';
 
 const AboutStory = () => {
   return (
-    <section className="py-24 bg-white relative">
+    <section className="py-14 md:py-24 bg-white relative">
       <div className="container">
         
         <div className="flex flex-col lg:flex-row gap-16 items-center">

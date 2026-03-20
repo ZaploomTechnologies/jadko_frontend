@@ -74,8 +74,8 @@ const MobileApp = () => {
             </div>
 
             {/* App Mockups */}
-            <div className="lg:w-1/2 relative w-full h-[450px] flex items-center justify-center mt-6 lg:mt-0">
-               <div className="relative w-full h-[600px] flex items-center justify-center scale-[0.75] md:scale-[0.85] lg:scale-[0.80] origin-center">
+            <div className="lg:w-1/2 relative w-full h-[340px] sm:h-[390px] md:h-[450px] flex items-center justify-center mt-6 lg:mt-0">
+               <div className="relative w-full h-[600px] flex items-center justify-center scale-[0.56] sm:scale-[0.64] md:scale-[0.75] lg:scale-[0.80] origin-center">
                   
                   {/* Main Phone (Front) */}
                   <div className="absolute z-20 w-[300px] h-[600px] bg-gray-50 rounded-[3rem] border-[10px] border-gray-900 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden transform transition-all duration-700 hover:-translate-y-4">

@@ -32,7 +32,7 @@ const HeroSlider = () => {
   }, []);
 
   return (
-    <section className="relative h-[600px] overflow-hidden bg-gray-900">
+    <section className="relative h-[280px] sm:h-[380px] md:h-[480px] lg:h-[600px] overflow-hidden bg-gray-900">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -55,10 +55,10 @@ const HeroSlider = () => {
           <div className="absolute inset-0 z-20 flex items-center justify-center">
             <div className="container flex justify-center">
               <div className="max-w-2xl text-center transform transition-all duration-700 translate-y-0 opacity-100">
-                <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+                <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 md:mb-6 leading-tight">
                   {slide.title}
                 </h1>
-                <p className="text-xl text-gray-200 mb-8 leading-relaxed">
+                <p className="text-sm sm:text-base md:text-xl text-gray-200 mb-4 md:mb-8 leading-relaxed">
                   {slide.subtitle}
                 </p>
                 {/* <button className="bg-jadko-secondary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-red-700 transition-all transform hover:scale-105 active:scale-95 shadow-xl">

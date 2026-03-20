@@ -86,7 +86,7 @@ const LeadForm = () => {
                 </div>
                 <div>
                   <p className="text-[9px] font-bold text-white/60 uppercase tracking-widest mb-0.5">Email Enquiry</p>
-                  <p className="text-lg font-bold">franchise@jadko.com</p>
+                  <p className="text-lg font-bold">jadkohealthcare@gmail.com</p>
                 </div>
               </div>
             </div>

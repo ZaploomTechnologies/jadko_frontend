@@ -7,15 +7,15 @@ const scrollToForm = () => {
 
 const FranchiseHero = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative lg:min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-jadko-primary to-[#1e3a8a] z-0"></div>
       {/* Abstract background shapes */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-[-20deg] translate-x-1/4"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-jadko-secondary/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
 
-      <div className="container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="container relative z-10 py-14 lg:py-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* Left: Content */}
           <div className="text-white">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-jadko-accent/20 border border-jadko-accent/30 text-jadko-accent text-xs font-bold mb-6">
@@ -56,7 +56,7 @@ const FranchiseHero = () => {
           {/* Right: Image */}
           <div className="w-full relative animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <div className="relative rounded-2xl shadow-2xl bg-white/5 border border-white/10 backdrop-blur-sm p-4">
-              <div className="absolute top-8 -left-8 bg-white p-4 rounded-xl shadow-xl flex items-center gap-4 z-20 animate-bounce" style={{ animationDuration: '3s' }}>
+              <div className="hidden sm:flex absolute top-8 -left-8 bg-white p-4 rounded-xl shadow-xl items-center gap-4 z-20 animate-bounce" style={{ animationDuration: '3s' }}>
                 <div className="bg-[#E8F2FF] p-3 rounded-lg text-jadko-primary">
                   <Award className="w-8 h-8" />
                 </div>
@@ -66,7 +66,7 @@ const FranchiseHero = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-12 -right-6 bg-white p-4 rounded-xl shadow-xl flex items-center gap-4 z-20 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
+              <div className="hidden sm:flex absolute bottom-12 -right-6 bg-white p-4 rounded-xl shadow-xl items-center gap-4 z-20 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
                 <div className="bg-[#E1FDEB] p-3 rounded-lg text-jadko-accent">
                   <TrendingUp className="w-8 h-8" />
                 </div>
@@ -79,7 +79,7 @@ const FranchiseHero = () => {
               <img
                 src="/franchise.png"
                 alt="Modern Healthcare Diagnostics"
-                className="rounded-xl w-full h-[500px] object-cover mix-blend-overlay opacity-80"
+                className="rounded-xl w-full h-[220px] sm:h-[320px] lg:h-[500px] object-cover mix-blend-overlay opacity-80"
               />
             </div>
           </div>

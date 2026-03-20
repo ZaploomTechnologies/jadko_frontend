@@ -54,7 +54,7 @@ const steps = [
 
 const StepsSection = () => {
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-14 md:py-24 bg-white overflow-hidden">
       <div className="container">
         <SectionHeader 
           title="4 Simple Steps to Manage Your Health"

@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const getLinkClass = (path) => {
-    return location.pathname === path 
+    return location.pathname === path
       ? "text-jadko-primary font-semibold hover:text-jadko-secondary transition-colors"
       : "text-gray-600 font-medium hover:text-jadko-primary transition-colors";
   };
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
-      <div className="jadko-container h-20 flex items-center justify-between">
+      <div className="jadko-container h-16 md:h-20 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <img 
-            src="/jadko-logo.png" 
-            alt="JADKO Healthcare" 
-            className="h-20 w-auto"
+          <img
+            src="/jadko-logo.png"
+            alt="JADKO HEALTHCARE PRIVATE LIMITED"
+            className="h-12 md:h-20 w-auto"
             onError={(e) => {
               e.target.onerror = null;
               e.target.src = 'https://via.placeholder.com/150x50?text=JADKO+LOGO';
@@ -25,7 +30,7 @@ const Header = () => {
           />
         </div>
 
-        {/* Navigation */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <Link to="/" className={getLinkClass('/')}>Home</Link>
           <Link to="/about" className={getLinkClass('/about')}>About</Link>
@@ -33,13 +38,27 @@ const Header = () => {
           <Link to="/contact" className={getLinkClass('/contact')}>Contact</Link>
         </nav>
 
-        {/* CTA */}
-        {/* <div className="flex items-center">
-          <button className="bg-jadko-secondary text-white px-6 py-2.5 rounded-full font-bold hover:bg-red-700 transition-all transform hover:scale-105 active:scale-95 shadow-md">
-            Book a Test
-          </button>
-        </div> */}
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden p-2 rounded-lg text-gray-600 hover:text-jadko-primary hover:bg-gray-50 transition-colors"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
+          <nav className="jadko-container py-4 flex flex-col gap-1">
+            <Link to="/" className={`${getLinkClass('/')} py-3 border-b border-gray-50`} onClick={closeMenu}>Home</Link>
+            <Link to="/about" className={`${getLinkClass('/about')} py-3 border-b border-gray-50`} onClick={closeMenu}>About</Link>
+            <Link to="/franchise" className={`${getLinkClass('/franchise')} py-3 border-b border-gray-50`} onClick={closeMenu}>Franchise</Link>
+            <Link to="/contact" className={`${getLinkClass('/contact')} py-3`} onClick={closeMenu}>Contact</Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
