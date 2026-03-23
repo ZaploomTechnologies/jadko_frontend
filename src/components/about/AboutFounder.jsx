@@ -8,7 +8,7 @@ const founders = [
     name: "Jitesh Patel",
     designation: "Founder",
     email: "jadkohealthcare@gmail.com",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    image: "/JiteshPatel.jpeg",
     linkedin: "#",
     twitter: "#"
   },
@@ -16,7 +16,7 @@ const founders = [
     name: "Amita Patel",
     designation: "Co-Founder",
     email: "jadkohealthcare@gmail.com",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    image: "/amitaPatel.jpeg",
     linkedin: "#",
     twitter: "#"
   },
@@ -24,7 +24,7 @@ const founders = [
     name: "Dharmesh Malsatar",
     designation: "Co-Founder",
     email: "jadkohealthcare@gmail.com",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    image: "/DharmeshMalsatar.jpg.jpeg",
     linkedin: "#",
     twitter: "#"
   }
@@ -52,7 +52,7 @@ const AboutFounder = () => {
                   <img 
                     src={founder.image} 
                     alt={founder.name}  
-                    className="relative z-10 w-full h-auto aspect-square object-cover rounded-2xl shadow-md grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className="relative z-10 w-full h-auto aspect-square object-cover object-top rounded-2xl shadow-md grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
                 </div>
               </div>
