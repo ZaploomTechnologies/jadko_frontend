@@ -5,7 +5,7 @@ const initialForm = {
   name: '',
   phone: '',
   city: '',
-  budget: '₹1.5L - ₹3L',
+  budget: 'Collection Center',
   message: '',
 };
 
@@ -53,7 +53,7 @@ const LeadForm = () => {
       `*Name:* ${form.name}`,
       `*Phone:* ${form.phone}`,
       `*City:* ${form.city}`,
-      `*Investment Budget:* ${form.budget}`,
+      `*Model:* ${form.budget}`,
       form.message ? `*Message:* ${form.message}` : null,
     ]
       .filter(Boolean)
@@ -163,17 +163,16 @@ const LeadForm = () => {
                     {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Investment Budget</label>
+                    <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Select Model</label>
                     <select
                       name="budget"
                       value={form.budget}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border border-gray-100 bg-gray-50 focus:bg-white focus:border-jadko-primary transition-all outline-none appearance-none cursor-pointer text-sm"
                     >
-                      <option>₹1.5L - ₹3L</option>
-                      <option>₹3L - ₹6L</option>
-                      <option>₹6L - ₹10L</option>
-                      <option>₹10L+</option>
+                      <option>Collection Center</option>
+                      <option>Mini Lab</option>
+                      <option>Full Diagnostic Lab</option>
                     </select>
                   </div>
                 </div>
