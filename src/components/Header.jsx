@@ -18,7 +18,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
       <div className="jadko-container h-16 md:h-20 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img
             src="/jadko-logo.png"
             alt="JADKO HEALTHCARE PRIVATE LIMITED"
@@ -28,7 +28,7 @@ const Header = () => {
               e.target.src = 'https://via.placeholder.com/150x50?text=JADKO+LOGO';
             }}
           />
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
