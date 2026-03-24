@@ -107,3 +107,10 @@
 .feature-card:hover .feature-icon {
   animation: wiggle 0.5s ease-in-out;
 }
+
+@media (max-width: 767px) {
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+}

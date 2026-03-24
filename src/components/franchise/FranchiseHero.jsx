@@ -7,14 +7,14 @@ const scrollToForm = () => {
 
 const FranchiseHero = () => {
   return (
-    <section className="relative lg:min-h-screen flex items-center overflow-hidden">
+    <section className="relative pt-12 pb-20 md:pt-24 md:pb-32 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-jadko-primary to-[#1e3a8a] z-0"></div>
       {/* Abstract background shapes */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-[-20deg] translate-x-1/4"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-jadko-secondary/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
 
-      <div className="container relative z-10 py-14 lg:py-0">
+      <div className="container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* Left: Content */}
           <div className="text-white">

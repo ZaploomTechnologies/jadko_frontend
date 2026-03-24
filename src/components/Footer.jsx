@@ -20,12 +20,12 @@ const Footer = () => {
               <a href="https://www.instagram.com/jadko_healthcare?utm_source=qr&igsh=MW9pYng5anJwd2R5MA==" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-jadko-primary hover:bg-jadko-primary hover:text-white transition-all cursor-pointer">
                  <Instagram className="w-5 h-5" />
               </a>
-              <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-jadko-primary hover:bg-jadko-primary hover:text-white transition-all cursor-pointer">
+              {/* <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-jadko-primary hover:bg-jadko-primary hover:text-white transition-all cursor-pointer">
                  <Twitter className="w-5 h-5" />
               </div>
               <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-jadko-primary hover:bg-jadko-primary hover:text-white transition-all cursor-pointer">
                  <Linkedin className="w-5 h-5" />
-              </div>
+              </div> */}
             </div>
           </div>
 

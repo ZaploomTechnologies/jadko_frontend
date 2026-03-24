@@ -11,11 +11,12 @@ const AboutStory = () => {
           
           {/* Left: Text Content */}
           <div className="w-full lg:w-1/2">
-            <SectionHeader 
+            <SectionHeader
               label="Our Story & Vision"
               title="Built on Experience. Designed for Scale."
               highlight="Experience"
               centered={false}
+              mobileCentered={true}
               className="mb-8"
             />
             

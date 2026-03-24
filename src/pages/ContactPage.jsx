@@ -123,6 +123,19 @@ const ContactPage = () => {
       setContactErrors(errs);
       return;
     }
+    const message = [
+      `*New Contact Inquiry - JADKO*`,
+      ``,
+      `*Name:* ${contactForm.name}`,
+      `*Phone:* ${contactForm.phone}`,
+      contactForm.email ? `*Email:* ${contactForm.email}` : null,
+      `*City:* ${contactForm.city}`,
+      `*Inquiry Type:* ${contactForm.inquiryType}`,
+      contactForm.message ? `*Message:* ${contactForm.message}` : null,
+    ]
+      .filter(Boolean)
+      .join('\n');
+    window.open(`https://wa.me/919033608708?text=${encodeURIComponent(message)}`, '_blank');
     setContactSubmitted(true);
   };
 

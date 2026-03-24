@@ -47,6 +47,18 @@ const LeadForm = () => {
       setErrors(validationErrors);
       return;
     }
+    const message = [
+      `*New Franchise Application - JADKO*`,
+      ``,
+      `*Name:* ${form.name}`,
+      `*Phone:* ${form.phone}`,
+      `*City:* ${form.city}`,
+      `*Investment Budget:* ${form.budget}`,
+      form.message ? `*Message:* ${form.message}` : null,
+    ]
+      .filter(Boolean)
+      .join('\n');
+    window.open(`https://wa.me/919033608708?text=${encodeURIComponent(message)}`, '_blank');
     setSubmitted(true);
   };
 

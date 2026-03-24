@@ -1,8 +1,9 @@
-import React from 'react';
-import { 
-  Activity, Heart, Thermometer, Droplets, 
-  User, Zap, Shield, Microscope, 
-  Baby, Syringe, Clipboard, PieChart 
+import React, { useState } from 'react';
+import {
+  Activity, Heart, Thermometer, Droplets,
+  User, Zap, Shield, Microscope,
+  Baby, Syringe, Clipboard, PieChart,
+  ChevronDown, ChevronUp
 } from 'lucide-react';
 import SectionHeader from './common/SectionHeader';
 
@@ -38,11 +39,15 @@ const bgColors = [
   'bg-rose-50', // soft rose
 ];
 
+const MOBILE_VISIBLE = 8;
+
 const HealthCheckups = () => {
+  const [showAll, setShowAll] = useState(false);
+
   return (
     <section id="services" className="py-20 bg-gray-50/50">
       <div className="container">
-        <SectionHeader 
+        <SectionHeader
           title="Diagnostic Packages"
           highlight="Packages"
           subtitle="Comprehensive health checkup packages designed for preventive care."
@@ -51,9 +56,9 @@ const HealthCheckups = () => {
         <div className="px-2 sm:px-0">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
             {categories.map((item, index) => (
-              <div 
+              <div
                 key={index}
-                className="group bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl flex items-center gap-3 sm:gap-4 transition-all duration-300 hover:border-jadko-primary/40 border border-gray-100 relative cursor-pointer"
+                className={`group bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl flex items-center gap-3 sm:gap-4 transition-all duration-300 hover:border-jadko-primary/40 border border-gray-100 relative cursor-pointer${index >= MOBILE_VISIBLE && !showAll ? ' hidden md:flex' : ''}`}
               >
                 {item.badge && (
                   <span className={`absolute -top-2 right-2 sm:right-4 flex items-center gap-1 text-[9px] font-bold px-2 py-0.5 rounded-full border ${item.badgeColor} z-20`}>
@@ -79,12 +84,19 @@ const HealthCheckups = () => {
             ))}
           </div>
         </div>
-{/* 
-        <div className="mt-12 text-center">
-          <button className="bg-white px-8 py-3 rounded-full text-jadko-primary font-bold shadow-sm hover:shadow-md transition-all border border-gray-200">
-            View All Categories →
+
+        <div className="mt-6 text-center md:hidden">
+          <button
+            onClick={() => setShowAll(prev => !prev)}
+            className="inline-flex items-center gap-2 bg-white px-6 py-2.5 rounded-full text-jadko-primary font-bold shadow-sm hover:shadow-md transition-all border border-gray-200 text-sm"
+          >
+            {showAll ? (
+              <>Show Less <ChevronUp className="w-4 h-4" /></>
+            ) : (
+              <>Read More <ChevronDown className="w-4 h-4" /></>
+            )}
           </button>
-        </div> */}
+        </div>
       </div>
     </section>
   );

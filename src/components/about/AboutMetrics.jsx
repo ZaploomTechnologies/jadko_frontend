@@ -120,7 +120,7 @@ const AboutMetrics = () => {
             </svg>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-6">
+          <div className="grid grid-cols-2 lg:flex lg:flex-row justify-between items-center gap-12 lg:gap-6">
             {metrics.map((metric, index) => {
               // Stagger every other item up/down to match the sine wave
               const isEven = index % 2 === 0;
@@ -129,7 +129,7 @@ const AboutMetrics = () => {
               return (
                 <div 
                   key={index} 
-                  className={`w-full lg:w-1/4 flex flex-col items-center group ${translateYClass}`}
+                  className={`flex flex-col items-center group ${translateYClass}`}
                 >
                   {/* Floating Icon */}
                   <div 

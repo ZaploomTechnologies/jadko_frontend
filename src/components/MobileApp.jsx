@@ -165,7 +165,7 @@ const MobileApp = () => {
                   </div>
 
                   {/* Secondary Phone (Back) */}
-                  <div className="absolute z-10 w-[270px] h-[550px] bg-white rounded-[2.5rem] border-[8px] border-gray-800 shadow-2xl opacity-90 transform rotate-[10deg] translate-x-28 translate-y-6 hidden md:block transition-all duration-700 hover:rotate-[15deg] hover:translate-x-32">
+                  <div className="absolute z-10 w-[270px] h-[550px] bg-white rounded-[2.5rem] border-[8px] border-gray-800 shadow-2xl opacity-90 transform rotate-[10deg] translate-x-28 translate-y-6 hidden md:block overflow-hidden transition-all duration-700 hover:rotate-[15deg] hover:translate-x-32">
                     <div className="absolute top-0 inset-x-0 h-5 bg-gray-800 rounded-b-2xl w-32 mx-auto z-50"></div>
                     <div className="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-t-[1.5rem] p-6 pt-12">
                        <div className="w-1/2 h-4 bg-gray-300 rounded-full mb-3"></div>

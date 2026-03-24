@@ -17,10 +17,11 @@ const PartnerSupport = () => {
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <SectionHeader 
+            <SectionHeader
               title="Unmatched Partner Support"
               highlight="Support"
               centered={false}
+              mobileCentered={true}
               className="mb-8"
             />
             <p className="text-gray-500 mb-8 text-base leading-relaxed">
