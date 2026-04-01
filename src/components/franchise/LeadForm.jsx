@@ -53,7 +53,7 @@ const LeadForm = () => {
       `*Name:* ${form.name}`,
       `*Phone:* ${form.phone}`,
       `*City:* ${form.city}`,
-      `*Model:* ${form.budget}`,
+      `*Select Model:* ${form.budget}`,
       form.message ? `*Message:* ${form.message}` : null,
     ]
       .filter(Boolean)
@@ -63,7 +63,7 @@ const LeadForm = () => {
   };
 
   const inputClass = (field) =>
-    `w-full px-4 py-3 rounded-lg border bg-gray-50 focus:bg-white transition-all outline-none text-sm ${
+    `w-full px-4 py-3 rounded-lg border bg-gray-50 focus:bg-white transition-all outline-none text-base ${
       errors[field] ? 'border-red-400 focus:border-red-400' : 'border-gray-100 focus:border-jadko-primary'
     }`;
 
@@ -77,7 +77,7 @@ const LeadForm = () => {
               <h2 className="text-2xl lg:text-3xl font-black mb-6 leading-tight">
                 Ready to Build Your Own Healthcare Business?
               </h2>
-              <p className="text-gray-200 text-sm mb-10 leading-relaxed">
+              <p className="text-gray-200 text-base mb-10 leading-relaxed">
                 Take the first step towards a rewarding healthcare entrepreneurship. Our experts will guide you through the entire process.
               </p>
             </div>
@@ -88,7 +88,7 @@ const LeadForm = () => {
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[9px] font-bold text-white/60 uppercase tracking-widest mb-0.5">Call for Enquiry</p>
+                  <p className="text-xs font-bold text-white/60 uppercase tracking-widest mb-0.5">Call for Enquiry</p>
                   <p className="text-lg font-bold">+91 98765 43210</p>
                 </div>
               </div>
@@ -97,7 +97,7 @@ const LeadForm = () => {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[9px] font-bold text-white/60 uppercase tracking-widest mb-0.5">Email Enquiry</p>
+                   <p className="text-xs font-bold text-white/60 uppercase tracking-widest mb-0.5">Email Enquiry</p>
                   <p className="text-lg font-bold">jadkohealthcare@gmail.com</p>
                 </div>
               </div>
@@ -110,12 +110,12 @@ const LeadForm = () => {
               <div className="flex flex-col items-center justify-center h-full py-10 text-center gap-4">
                 <CheckCircle className="w-16 h-16 text-green-500" />
                 <h3 className="text-2xl font-black text-gray-900">Application Submitted!</h3>
-                <p className="text-gray-500 text-sm max-w-xs">
+                <p className="text-gray-500 text-base max-w-xs">
                   Thank you for your interest. Our franchise team will contact you within 24 hours.
                 </p>
                 <button
                   onClick={() => { setForm(initialForm); setSubmitted(false); }}
-                  className="mt-2 text-jadko-primary font-bold text-sm underline underline-offset-2"
+                  className="mt-2 text-jadko-primary font-bold text-base underline underline-offset-2"
                 >
                   Submit another application
                 </button>
@@ -124,7 +124,7 @@ const LeadForm = () => {
               <form className="space-y-4" onSubmit={handleSubmit} noValidate>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Full Name</label>
+                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Full Name</label>
                     <input
                       type="text"
                       name="name"
@@ -136,7 +136,7 @@ const LeadForm = () => {
                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Phone Number</label>
+                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Phone Number</label>
                     <input
                       type="tel"
                       name="phone"
@@ -149,49 +149,62 @@ const LeadForm = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">City</label>
-                    <input
-                      type="text"
-                      name="city"
-                      value={form.city}
-                      onChange={handleChange}
-                      placeholder="City Name"
-                      className={inputClass('city')}
-                    />
-                    {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city}</p>}
-                  </div>
-                  <div className="space-y-1.5">
-                    <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Select Model</label>
-                    <select
-                      name="budget"
-                      value={form.budget}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-100 bg-gray-50 focus:bg-white focus:border-jadko-primary transition-all outline-none appearance-none cursor-pointer text-sm"
-                    >
-                      <option>Collection Center</option>
-                      <option>Mini Lab</option>
-                      <option>Full Diagnostic Lab</option>
-                    </select>
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">City</label>
+                  <input
+                    type="text"
+                    name="city"
+                    value={form.city}
+                    onChange={handleChange}
+                    placeholder="City Name"
+                    className={inputClass('city')}
+                  />
+                  {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city}</p>}
+                </div>
+
+                <div className="space-y-3">
+                  <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Select Model</label>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    {['Collection Center', 'Mini Lab', 'Full Diagnostic Lab'].map((model) => (
+                      <label 
+                        key={model}
+                        className={`
+                          relative flex items-center justify-center p-4 rounded-xl border-2 transition-all cursor-pointer text-sm font-bold
+                          ${form.budget === model 
+                            ? 'border-jadko-primary bg-jadko-primary/5 text-jadko-primary' 
+                            : 'border-gray-100 bg-gray-50 text-gray-500 hover:border-gray-200'
+                          }
+                        `}
+                      >
+                        <input
+                          type="radio"
+                          name="budget"
+                          value={model}
+                          checked={form.budget === model}
+                          onChange={handleChange}
+                          className="sr-only"
+                        />
+                        <span className="text-center">{model}</span>
+                      </label>
+                    ))}
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Message (Optional)</label>
+                  <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Message (Optional)</label>
                   <textarea
                     name="message"
                     value={form.message}
                     onChange={handleChange}
                     rows="3"
                     placeholder="Tell us about your background..."
-                    className="w-full px-4 py-3 rounded-lg border border-gray-100 bg-gray-50 focus:bg-white focus:border-jadko-primary transition-all outline-none resize-none text-sm"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-100 bg-gray-50 focus:bg-white focus:border-jadko-primary transition-all outline-none resize-none text-base"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-jadko-secondary text-white font-bold rounded-lg tracking-widest uppercase shadow-lg shadow-jadko-secondary/20 hover:scale-[1.01] active:scale-[0.99] transition-all text-xs"
+                  className="w-full py-4 bg-jadko-secondary text-white font-bold rounded-lg tracking-widest uppercase shadow-lg shadow-jadko-secondary/20 hover:scale-[1.01] active:scale-[0.99] transition-all text-sm"
                 >
                   Submit Application
                 </button>

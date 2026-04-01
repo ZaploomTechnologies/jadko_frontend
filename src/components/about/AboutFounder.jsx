@@ -1,5 +1,4 @@
 import React from 'react';
-import { Mail, Phone, ExternalLink, Linkedin, Twitter } from 'lucide-react';
 
 import SectionHeader from '../common/SectionHeader';
 
@@ -14,7 +13,7 @@ const founders = [
   },
   {
     name: "Amita Patel",
-    designation: "Co-Founder",
+    designation: "CEO",
     email: "jadkohealthcare@gmail.com",
     image: "/amitaPatel.jpeg",
     linkedin: "#",
@@ -66,23 +65,6 @@ const AboutFounder = () => {
                   <p className="text-sm font-bold text-gray-400 uppercase tracking-wider">
                     {founder.designation}
                   </p>
-                </div>
-                
-                <a href={`mailto:${founder.email}`} className="text-xs font-semibold text-gray-500 hover:text-jadko-primary flex items-center gap-2 transition-colors truncate">
-                  <Mail className="w-3.5 h-3.5 text-jadko-primary" />
-                  {founder.email}
-                </a>
-
-                <div className="flex gap-3 pt-1">
-                  <a href={founder.linkedin} className="p-2 bg-gray-50 rounded-lg text-gray-400 hover:text-[#0077b5] hover:bg-[#E8F2FF] transition-all shadow-sm">
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                  <a href={founder.twitter} className="p-2 bg-gray-50 rounded-lg text-gray-400 hover:text-[#1DA1F2] hover:bg-[#E8F2FF] transition-all shadow-sm">
-                    <Twitter className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="p-2 bg-gray-50 rounded-lg text-gray-400 hover:text-jadko-primary hover:bg-[#E8F2FF] transition-all shadow-sm">
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
                 </div>
               </div>
 

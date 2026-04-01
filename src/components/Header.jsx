@@ -22,7 +22,7 @@ const Header = () => {
           <img
             src="/jadko-logo.png"
             alt="JADKO HEALTHCARE PRIVATE LIMITED"
-            className="h-12 md:h-20 w-auto"
+            className="h-8 md:h-10 w-auto"
             onError={(e) => {
               e.target.onerror = null;
               e.target.src = 'https://via.placeholder.com/150x50?text=JADKO+LOGO';
@@ -34,6 +34,7 @@ const Header = () => {
         <nav className="hidden md:flex items-center space-x-8">
           <Link to="/" className={getLinkClass('/')}>Home</Link>
           <Link to="/about" className={getLinkClass('/about')}>About</Link>
+          <Link to="/packages" className={getLinkClass('/packages')}>Packages</Link>
           <Link to="/franchise" className={getLinkClass('/franchise')}>Franchise</Link>
           <Link to="/contact" className={getLinkClass('/contact')}>Contact</Link>
         </nav>
@@ -54,6 +55,7 @@ const Header = () => {
           <nav className="jadko-container py-4 flex flex-col gap-1">
             <Link to="/" className={`${getLinkClass('/')} py-3 border-b border-gray-50`} onClick={closeMenu}>Home</Link>
             <Link to="/about" className={`${getLinkClass('/about')} py-3 border-b border-gray-50`} onClick={closeMenu}>About</Link>
+            <Link to="/packages" className={`${getLinkClass('/packages')} py-3 border-b border-gray-50`} onClick={closeMenu}>Packages</Link>
             <Link to="/franchise" className={`${getLinkClass('/franchise')} py-3 border-b border-gray-50`} onClick={closeMenu}>Franchise</Link>
             <Link to="/contact" className={`${getLinkClass('/contact')} py-3`} onClick={closeMenu}>Contact</Link>
           </nav>

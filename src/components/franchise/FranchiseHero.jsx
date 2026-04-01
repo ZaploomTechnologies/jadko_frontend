@@ -77,7 +77,7 @@ const FranchiseHero = () => {
               </div>
 
               <img
-                src="/franchise.png"
+                src="/team-doctors-meeting.jpg"
                 alt="Modern Healthcare Diagnostics"
                 className="rounded-xl w-full h-[220px] sm:h-[320px] lg:h-[500px] object-cover mix-blend-overlay opacity-80"
               />

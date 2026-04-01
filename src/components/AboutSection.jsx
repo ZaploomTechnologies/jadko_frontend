@@ -15,7 +15,7 @@ const AboutSection = () => {
             />
             <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
               <p>
-                Founded in 2025 by diagnostics industry veterans, JADKO is committed to transforming healthcare across India. We leverage technology, clinical expertise, and an asset-light franchise model to deliver high-quality testing far from metro centers.
+                Founded in 2025, backed by over 29+ years of industry experience and expertise, JADKO is committed to transforming healthcare across India. We leverage technology, clinical expertise, and an asset-light franchise model to deliver high-quality testing far from metro centers.
               </p>
               <p>
                 India's diagnostic market was ~₹1.54 lakh crore in FY24, and over 80% of this market is still underserved. JADKO's vision is to bridge this gap: we aim to provide affordable, world-class testing for all Indians by 2027.

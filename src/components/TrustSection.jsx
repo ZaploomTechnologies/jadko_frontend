@@ -42,7 +42,7 @@ const testimonials = [
 ];
 
 const brands = [
-  { name: "NABL Accredited", icon: <Award className="w-12 h-12" /> },
+  { name: "NABL Protocol Followed", icon: <Award className="w-12 h-12" /> },
   { name: "ISO Certified", icon: <CheckCircle className="w-12 h-12" /> },
   { name: "Trusted by Doctors", icon: <Star className="w-12 h-12" /> },
   { name: "Fast & Accurate", icon: <TrendingUp className="w-12 h-12" /> },

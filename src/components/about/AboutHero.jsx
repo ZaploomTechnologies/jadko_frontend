@@ -73,7 +73,7 @@ const AboutHero = () => {
               </div>
 
               <img 
-                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                src="/blood-test.jpg" 
                 alt="Modern Healthcare Diagnostics" 
                 className="rounded-xl w-full h-[220px] sm:h-[320px] lg:h-[500px] object-cover mix-blend-overlay opacity-80"
               />

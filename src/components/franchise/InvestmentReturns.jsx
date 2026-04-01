@@ -2,7 +2,7 @@ import React from 'react';
 import SectionHeader from '../common/SectionHeader';
 
 const InvestmentReturns = () => {
-  const channels = ['B2B Tie-ups', 'Corporate health', 'Home collection', 'Retail Patients'];
+  const channels = ['B2B Tie-ups', 'Corporate health', 'Home collection', 'Walk-In Patients'];
   
   const chartData = [
     { label: 'Month 1', height: 'h-24', color: 'bg-gray-300' },

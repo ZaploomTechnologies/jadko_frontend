@@ -29,8 +29,8 @@ const AboutWhy = () => {
               <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 group-hover:animate-wiggle">
                 <LayoutTemplate className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Structural Fragmentation</h3>
-              <p className="text-gray-500 text-sm font-medium leading-relaxed max-w-xs">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Structural Fragmentation</h3>
+              <p className="text-gray-500 text-base font-medium leading-relaxed max-w-xs">
                 Dominated by unorganized players, the industry lacks standardized protocols, leading to inconsistent and unreliable patient experiences.
               </p>
             </div>
@@ -46,8 +46,8 @@ const AboutWhy = () => {
             <div className="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center mb-6 group-hover:animate-wiggle">
               <AlertCircle className="w-5 h-5" />
             </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Reliability Crisis</h3>
-            <p className="text-xs text-gray-500 font-medium leading-relaxed">
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Reliability Crisis</h3>
+            <p className="text-sm text-gray-500 font-medium leading-relaxed">
               Varying quality controls mean results mismatch across labs, causing distrust in critical medical outcomes.
             </p>
             <div className="mt-auto opacity-10 group-hover:opacity-30 transition-opacity">
@@ -62,8 +62,8 @@ const AboutWhy = () => {
               <Clock className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-gray-900">Velocity Gap</h3>
-              <p className="text-[10px] text-gray-500 font-medium mt-1">Slow reports risk lives.</p>
+              <h3 className="text-base font-bold text-gray-900">Velocity Gap</h3>
+              <p className="text-xs text-gray-500 font-medium mt-1">Slow reports risk lives.</p>
             </div>
           </div>
 
@@ -74,8 +74,8 @@ const AboutWhy = () => {
               <Globe className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-gray-900">Access Barrier</h3>
-              <p className="text-[10px] text-gray-500 font-medium mt-1">Limited Tier-2 reach.</p>
+              <h3 className="text-base font-bold text-gray-900">Access Barrier</h3>
+              <p className="text-xs text-gray-500 font-medium mt-1">Limited Tier-2 reach.</p>
             </div>
           </div>
 
@@ -87,8 +87,8 @@ const AboutWhy = () => {
                 <ShieldAlert className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-gray-900">Economic Opacity</h3>
-                <p className="text-xs text-gray-500 font-medium">Hidden costs & non-transparent pricing.</p>
+                <h3 className="text-xl font-bold text-gray-900">Economic Opacity</h3>
+                <p className="text-sm text-gray-500 font-medium">Hidden costs & non-transparent pricing.</p>
               </div>
             </div>
             <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-purple-600 group-hover:text-white transition-colors">
@@ -104,8 +104,8 @@ const AboutWhy = () => {
                   <Zap className="w-5 h-5 text-jadko-accent" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold leading-none">JADKO Unified Grid</h3>
-                  <p className="text-[10px] text-jadko-primary-lighter font-medium mt-1">One Standard. Total Speed. Absolute Trust.</p>
+                  <h3 className="text-xl font-bold leading-none">JADKO Unified Grid</h3>
+                  <p className="text-xs text-jadko-primary-lighter font-medium mt-1">One Standard. Total Speed. Absolute Trust.</p>
                 </div>
              </div>
              <ArrowUpRight className="relative z-10 w-5 h-5 text-jadko-accent hover:scale-125 transition-transform cursor-pointer" />

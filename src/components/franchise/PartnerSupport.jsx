@@ -38,17 +38,14 @@ const PartnerSupport = () => {
             </div>
           </div>
 
-          <div className="relative group max-w-md mx-auto lg:mx-0">
+          <div className="relative group">
             <div className="absolute inset-0 bg-jadko-accent/10 rounded-2xl -rotate-2 group-hover:rotate-0 transition-all duration-500"></div>
-            <div className="relative bg-[#F4F1E1] p-8 rounded-2xl border border-gray-100 overflow-hidden">
-               {/* Illustration placeholder or generated image */}
-               <div className="aspect-square flex items-center justify-center">
-                  <img 
-                    src="/partner_support.png" 
-                    alt="Partner Support Illustration"
-                    className="max-w-[80%] opacity-80 mix-blend-multiply"
-                  />
-               </div>
+            <div className="relative aspect-square rounded-2xl overflow-hidden">
+              <img
+                src="/meeting.jpg"
+                alt="Partner Support Illustration"
+                className="w-full h-full object-cover object-[30%_center]"
+              />
             </div>
           </div>
         </div>
