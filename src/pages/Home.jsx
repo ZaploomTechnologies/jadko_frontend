@@ -4,8 +4,6 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import StepsSection from '../components/StepsSection';
 import MobileApp from '../components/MobileApp';
 import AboutSection from '../components/AboutSection';
-import TrustSection from '../components/TrustSection';
-import AboutRecognition from '../components/about/AboutRecognition';
 
 const Home = () => {
   return (
@@ -16,8 +14,6 @@ const Home = () => {
       <StepsSection />
       <MobileApp />
       <AboutSection />
-      <AboutRecognition />
-      <TrustSection />
     </main>
   );
 };

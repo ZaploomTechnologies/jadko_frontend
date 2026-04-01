@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import AboutHero from '../components/about/AboutHero';
 import AboutMetrics from '../components/about/AboutMetrics';
 import AboutStory from '../components/about/AboutStory';
-import AboutRecognition from '../components/about/AboutRecognition';
 import AboutFounder from '../components/about/AboutFounder';
 import AboutWhy from '../components/about/AboutWhy';
 
@@ -17,7 +16,6 @@ const AboutPage = () => {
       <AboutHero />
       <AboutMetrics />
       <AboutStory />
-      <AboutRecognition />
       <AboutFounder />
       <AboutWhy />
     </div>
