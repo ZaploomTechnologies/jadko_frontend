@@ -124,7 +124,7 @@ const LeadForm = () => {
               <form className="space-y-4" onSubmit={handleSubmit} noValidate>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Full Name</label>
+                    <label className="text-xs font-bold text-gray-900 uppercase tracking-widest">Full Name</label>
                     <input
                       type="text"
                       name="name"
@@ -136,7 +136,7 @@ const LeadForm = () => {
                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Phone Number</label>
+                    <label className="text-xs font-bold text-gray-900 uppercase tracking-widest">Phone Number</label>
                     <input
                       type="tel"
                       name="phone"
@@ -150,7 +150,7 @@ const LeadForm = () => {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">City</label>
+                  <label className="text-xs font-bold text-gray-900 uppercase tracking-widest">City</label>
                   <input
                     type="text"
                     name="city"
@@ -163,7 +163,7 @@ const LeadForm = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Select Model</label>
+                  <label className="text-xs font-bold text-gray-900 uppercase tracking-widest">Select Model</label>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     {['Collection Center', 'Mini Lab', 'Full Diagnostic Lab'].map((model) => (
                       <label 
@@ -191,7 +191,7 @@ const LeadForm = () => {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Message (Optional)</label>
+                  <label className="text-xs font-bold text-gray-900 uppercase tracking-widest">Message (Optional)</label>
                   <textarea
                     name="message"
                     value={form.message}
