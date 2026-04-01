@@ -107,9 +107,7 @@ const PackageList = () => {
           ))}
         </div>
 
-        <p className="text-center text-xs text-gray-400 mt-8">
-          * Fasting for 10–12 hours required before sample collection &nbsp;|&nbsp; Home visit available 8:00 AM – 9:00 PM (Sun 8:00 AM – 1:00 PM)
-        </p>
+     
       </div>
     </section>
   );
