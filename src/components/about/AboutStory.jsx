@@ -21,7 +21,7 @@ const AboutStory = () => {
             />
             
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Founded in 2025 and backed by <strong className="text-gray-900">25+ years of diagnostic expertise</strong>, JADKO combines deep clinical knowledge with modern technology to build a scalable and trusted diagnostic network.
+              Founded in 2025 and backed by <strong className="text-gray-900">29+ years of diagnostic expertise</strong>, JADKO combines deep clinical knowledge with modern technology to build a scalable and trusted diagnostic network.
             </p>
 
             <div className="bg-gray-50 border-l-4 border-jadko-secondary p-8 rounded-r-2xl mb-8">
