@@ -51,7 +51,7 @@ const AboutFounder = () => {
                   <img 
                     src={founder.image} 
                     alt={founder.name}  
-                    className="relative z-10 w-full h-auto aspect-square object-cover object-top rounded-2xl shadow-md grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className="relative z-10 w-full h-auto aspect-square object-cover object-top rounded-2xl shadow-md transition-all duration-500"
                   />
                 </div>
               </div>
