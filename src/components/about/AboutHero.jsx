@@ -16,7 +16,7 @@ const AboutHero = () => {
           <div className="w-full lg:w-1/2 text-white">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-jadko-accent/20 border border-jadko-accent/30 text-jadko-accent text-xs font-bold mb-6">
               <span className="w-2 h-2 rounded-full bg-jadko-accent animate-pulse"></span>
-              ACCURATE DIAGNOSTICS. KNOWLEDGE-DRIVEN OUTCOMES.
+              A Journey of Accurate Diagnostics and Knowledge for better Outcomes
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug mb-4">
@@ -37,7 +37,7 @@ const AboutHero = () => {
 
             <ul className="space-y-4">
               {[
-                "India's Trusted Network for Accurate Diagnostics",
+                "A Journey of Accurate Diagnostics and Knowledge for better Outcomes",
                 "Nationwide reach with technology-enabled labs",
                 "Faster turnaround times and accessible healthcare"
               ].map((item, index) => (

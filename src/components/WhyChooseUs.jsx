@@ -12,8 +12,8 @@ const benefits = [
   },
   {
     icon: ShieldCheck,
-    title: "Accredited Labs",
-    description: "All tests run in NABL-certified partner labs. Every report is verified by expert doctors.",
+    title: "NABL Protocol Followed",
+    description: "Every test strictly follows NABL-mandated protocols — ensuring standardized procedures, quality controls, and accurate, reliable results you can trust.",
     color: "from-emerald-500/20 to-teal-500/20",
     iconColor: "text-emerald-500",
     hoverBorder: "group-hover:border-emerald-400"

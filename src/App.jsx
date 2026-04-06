@@ -10,6 +10,7 @@ import FranchisePage from './pages/FranchisePage';
 import ContactPage from './pages/ContactPage';
 import PackagePage from './pages/PackagePage';
 import PackageDetailPage from './pages/PackageDetailPage';
+import Marquee from './components/common/Marquee';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -44,6 +45,7 @@ const App = () => {
         }
       `}</style>
       <ScrollToTop />
+      <Marquee />
       <Header />
 
       {/* Floating WhatsApp Button */}

@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="md:col-span-2 lg:col-span-1">
             <img src="/jadko-logo.png" alt="JADKO Logo" className="h-10 w-auto mb-2" />
             <p className="text-gray-600 mb-8 leading-relaxed max-w-sm">
-              Providing accessible, affordable, and accurate diagnostic services across India. Bridging the gap in healthcare through technology and expertise.
+              A Journey of Accurate Diagnostics and Knowledge for better Outcomes — delivering reliable, affordable, and accessible healthcare across India.
             </p>
             <div className="flex gap-4">
               <a href="https://www.facebook.com/share/1DEHD4KzmY/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-jadko-primary hover:bg-jadko-primary hover:text-white transition-all cursor-pointer">
