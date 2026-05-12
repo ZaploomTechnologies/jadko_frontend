@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import LanguageSwitcher from './common/LanguageSwitcher';
 
 const Header = () => {
   const location = useLocation();
@@ -37,6 +38,7 @@ const Header = () => {
           <Link to="/packages" className={getLinkClass('/packages')}>Packages</Link>
           <Link to="/franchise" className={getLinkClass('/franchise')}>Franchise</Link>
           <Link to="/contact" className={getLinkClass('/contact')}>Contact</Link>
+          <LanguageSwitcher />
         </nav>
 
         {/* Mobile Hamburger */}
@@ -58,6 +60,9 @@ const Header = () => {
             <Link to="/packages" className={`${getLinkClass('/packages')} py-3 border-b border-gray-50`} onClick={closeMenu}>Packages</Link>
             <Link to="/franchise" className={`${getLinkClass('/franchise')} py-3 border-b border-gray-50`} onClick={closeMenu}>Franchise</Link>
             <Link to="/contact" className={`${getLinkClass('/contact')} py-3`} onClick={closeMenu}>Contact</Link>
+            <div className="py-3">
+              <LanguageSwitcher />
+            </div>
           </nav>
         </div>
       )}
